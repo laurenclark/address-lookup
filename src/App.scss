@@ -1,0 +1,84 @@
+:root {
+    --base: #454545;
+    --background: #fff;
+    --font: #333;
+    --accent: #e9ebeb;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: helvetica, arial, "sans-serif";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: var(--font);
+    background: var(--background);
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-field {
+    flex-flow: row wrap;
+    padding: 2em;
+    max-width: 500px;
+}
+
+input {
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #0e1e24;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 24px;
+    margin: 0;
+    padding: 6px 14px;
+    transition: box-shadow ease-in-out 0.15s;
+    transition: box-shadow ease-in-out 0.15s,
+        -webkit-box-shadow ease-in-out 0.15s;
+    width: 100%;
+    min-width: 400px;
+}
+.floating .label {
+    transform: scale(0.75) translate3d(-16%, -120%, 0);
+}
+.form-group label,
+.label {
+    color: rgba(14, 30, 37, 0.54);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.label {
+    font-size: 16px;
+    position: absolute;
+    transform: translate3d(14px, 8px, 0);
+    transition: 0.2s ease;
+}
+.floating-labels .form-field:not(.form-field--checkbox) .label {
+    font-size: 16px;
+    position: absolute;
+    transform: translate3d(14px, 8px, 0);
+    transition: 0.2s ease;
+}
+input.focus,
+input:focus {
+    border-color: #f4bb00;
+    box-shadow: 0 0 1px 0 #f4bb00;
+    outline: 0;
+}
