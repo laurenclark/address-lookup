@@ -16,4 +16,3 @@ export default function FloatingInput(props) {
         </form>
     );
 }
-å;
