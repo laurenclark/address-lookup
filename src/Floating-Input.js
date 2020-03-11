@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function FloatingInput(props) {
     const [focusActive, setFocusActive] = useState(false);
@@ -16,3 +16,4 @@ export default function FloatingInput(props) {
         </form>
     );
 }
+å;
