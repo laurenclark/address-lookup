@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { css, jsx } from '@emotion/core';
 
 export default function FloatingInput(props) {
@@ -10,41 +11,46 @@ export default function FloatingInput(props) {
         .form-control {
             padding-bottom: 0.1rem;
             position: relative;
-            width: 100%;
-            max-width: 600px;
+            width: 34vw;
             label {
                 position: absolute;
-                color: #333;
+                color: var(--font);
                 display: block;
                 margin-bottom: 5px;
                 top: 12px;
                 left: 14px;
+                font-size: 120%;
             }
             input {
-                border: 2px solid #f0f0f0;
+                border: 2px solid var(--base);
                 border-radius: 4px;
                 display: block;
                 width: 100%;
                 padding: 10px;
-                margin: 1rem 0;
-                font-size: 1rem;
+                margin-bottom: 1rem;
+                font-size: 120%;
+                &::placeholder {
+                    color: transparent;
+                }
                 &:focus {
-                    border-color: var(--primary-color);
+                    border-color: var(--accent);
                     outline: 0;
                     &:valid {
                         background: white;
                         z-index: -1;
                     }
                 }
-                &::placeholder {
-                    color: transparent;
-                }
             }
             &:focus + label,
             &.active > label {
-                transform: scale(0.75) translate3d(-16px, -113%, 0);
+                transform: scale(0.8) translate3d(-16px, -28px, 0);
                 transition: all linear 0.1s;
                 background: white;
+            }
+            &.active {
+                input::placeholder {
+                    color: var(--base);
+                }
             }
             small {
                 position: absolute;
@@ -61,14 +67,18 @@ export default function FloatingInput(props) {
     `;
     return (
         <fieldset css={formControl}>
-            <div className={`form-control ${value ? 'active' : ''}`}>
+            <div
+                className={`form-control ${
+                    value || focusActive ? 'active' : ''
+                }`}>
                 <label htmlFor={props.name}>{props.labeltext}</label>
                 <input
                     {...props}
-                    placeholder={props.labeltext}
                     value={value}
                     id={props.name}
                     onChange={e => setValue(e.target.value)}
+                    onBlur={() => setFocusActive(!focusActive)}
+                    onFocus={() => setFocusActive(!focusActive)}
                 />
                 <small></small>
             </div>
