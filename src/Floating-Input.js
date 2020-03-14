@@ -85,3 +85,14 @@ export default function FloatingInput(props) {
         </fieldset>
     );
 }
+
+FloatingInput.propTypes = {
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func,
+    placeholder: PropTypes.string,
+    name: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.string,
+    disabled: PropTypes.bool,
+    labelText: PropTypes.string
+};
