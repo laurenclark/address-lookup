@@ -4,7 +4,8 @@ import FloatingInput from './Floating-Input';
 export default function GooglePlaces(props) {
     return (
         <FloatingInput
-            labelText="Please type in your address!"
+            placeholder="94 Road Street"
+            labeltext="Address"
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="none"
