@@ -1,5 +1,5 @@
 import React from 'react';
-import GooglePlaces from './Google-Places-Form';
+import GooglePlaces from './components/Google-Places-Form';
 import './App.scss';
 
 function App(props) {
